@@ -1,76 +1,53 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint:latest",
+    "tslint-etc",
+    "rxjs-tslint-rules",
+    "angular-tslint-rules",
+    "tslint-clean-code",
+    "tslint-config-prettier",
+    "codelyzer"
+  ],
+  "linterOptions": {
+    "exclude": ["e2e/src/*.ts", "src/test.ts", "src/polyfills.ts"]
+  },
   "rules": {
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
       "severity": "warning"
     },
+    "radix": false,
+    "semicolon": [true, "always"],
+    "prefer-conditional-expression": false,
+    "no-object-literal-type-assertion": false,
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
-    "directive-selector": [
-      true,
-      "attribute",
-      "app",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "app",
-      "kebab-case"
-    ],
-    "import-blacklist": [
-      true,
-      "rxjs/Rx"
-    ],
+    "directive-selector": [true, "attribute", "ds", "camelCase"],
+    "component-selector": [true, "element", "ds", "kebab-case"],
+    "import-blacklist": [true, "rxjs/Rx"],
     "interface-name": false,
     "max-classes-per-file": false,
-    "max-line-length": [
-      true,
-      140
-    ],
     "member-access": false,
     "member-ordering": [
       true,
       {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
+        "order": ["static-field", "instance-field", "static-method", "instance-method"]
       }
     ],
     "no-consecutive-blank-lines": false,
-    "no-console": [
-      true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
-    ],
+    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+    "no-submodule-imports": false,
     "no-empty": false,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
+    "no-inferrable-types": [true, "ignore-params"],
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
     "no-var-requires": false,
-    "object-literal-key-quotes": [
-      true,
-      "as-needed"
-    ],
+    "object-literal-key-quotes": [true, "as-needed"],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "quotemark": [
-      true,
-      "single"
-    ],
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
@@ -83,9 +60,97 @@
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
+    "use-pipe-transform-interface": true,
+    "arrow-return-shorthand": true,
+    "callable-types": true,
+    "class-name": true,
+    "comment-format": [true, "check-space"],
+    "curly": true,
+    "forin": true,
+    "interface-over-type-literal": true,
+    "label-position": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-empty-interface": true,
+    "no-eval": true,
+    "no-misused-new": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": false,
+    "no-string-throw": true,
+    "no-unnecessary-initializer": true,
+    "no-unused-expression": true,
+    "no-var-keyword": true,
+    "prefer-const": true,
+    "triple-equals": [true, "allow-null-check"],
+    "unified-signatures": true,
+    "variable-name": false,
+    "no-unused-variable": false,
+    "no-unused-declaration": true,
+    "throw-error": {
+      "severity": "error"
+    },
+    "no-implicit-dependencies": [true, ["@app", "@common", "@core", "@shared", "@state", "@styles"]],
+
+    "rxjs-no-subject-unsubscribe": {
+      "severity": "warning"
+    },
+    "rxjs-no-subject-value": {
+      "severity": "warning"
+    },
+    "rxjs-no-unsafe-switchmap": {
+      "severity": "error"
+    },
+    "rxjs-throw-error": {
+      "severity": "error"
+    },
+    "rxjs-no-create": {
+      "severity": "error"
+    },
+    "rxjs-no-nested-subscribe": {
+      "severity": "warning"
+    },
+    "rxjs-no-unsafe-catch": {
+      "severity": "error"
+    },
+    "rxjs-no-unsafe-first": {
+      "severity": "error"
+    },
+    "rxjs-no-ignored-subscribe": {
+      "severity": "warning"
+    },
+    "rxjs-no-unsafe-takeuntil": true,
+    "no-collapsible-if": true,
+    "early-exit": {
+      "options": {
+        "max-length": 5,
+        "ignore-constructor": true
+      },
+      "severity": "warning"
+    },
+    "naming-convention": true,
+    "no-unnecessary-else": true,
+    "no-static-this": true,
+    "no-unused": true,
+    "no-var-before-return": [true, "allow-destructuring"],
+    "parameter-properties": [true, "all-or-none", "member-access", "readonly"],
+    "prefer-const-enum": true,
+    "prefer-while": true,
+    "id-length": [true, ["T"]],
+    "no-for-each-push": true,
+    "no-map-without-usage": true,
+    "no-complex-conditionals": true,
+    "prefer-dry-conditionals": true,
+    "no-commented-out-code": {
+      "severity": "warning",
+      "invalid-void": false
+    },
+    "template-i18n": false,
+    "invalid-void": false,
+    "template-cyclomatic-complexity": [true, 20],
+    "only-arrow-functions": false
   },
-  "rulesDirectory": [
-    "codelyzer"
-  ]
+  "rulesDirectory": ["codelyzer", "tslint-misc-rules", "tslint-consistent-codestyle"]
 }
