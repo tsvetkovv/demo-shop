@@ -1,1 +1,21 @@
-<p>login-form works!</p>
+<h3>
+  Login
+</h3>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <p>
+    <input type="text" placeholder="Username" formControlName="username" />
+  </p>
+
+  <p>
+    <input type="password" placeholder="Password" formControlName="password" />
+  </p>
+
+  <p *ngIf="errorMessage" class="loginError">
+    {{ errorMessage }}
+  </p>
+
+  <p class="loginButtons">
+    <button type="submit">Login</button>
+  </p>
+</form>

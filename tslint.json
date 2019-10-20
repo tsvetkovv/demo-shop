@@ -1,13 +1,5 @@
 {
-  "extends": [
-    "tslint:latest",
-    "tslint-etc",
-    "rxjs-tslint-rules",
-    "angular-tslint-rules",
-    "tslint-clean-code",
-    "tslint-config-prettier",
-    "codelyzer"
-  ],
+  "extends": ["tslint:latest", "tslint-etc", "rxjs-tslint-rules", "angular-tslint-rules", "tslint-clean-code", "tslint-config-prettier", "codelyzer"],
   "linterOptions": {
     "exclude": ["e2e/src/*.ts", "src/test.ts", "src/polyfills.ts"]
   },
@@ -150,7 +142,8 @@
     "template-i18n": false,
     "invalid-void": false,
     "template-cyclomatic-complexity": [true, 20],
-    "only-arrow-functions": false
+    "only-arrow-functions": false,
+    "no-floating-promises": false
   },
   "rulesDirectory": ["codelyzer", "tslint-misc-rules", "tslint-consistent-codestyle"]
 }

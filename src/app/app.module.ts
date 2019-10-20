@@ -8,12 +8,15 @@ import { AppComponent } from './app.component';
 import { reducers, metaReducers } from './reducers';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     AuthModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -22,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
         strictActionImmutability: true,
       },
     }),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }),

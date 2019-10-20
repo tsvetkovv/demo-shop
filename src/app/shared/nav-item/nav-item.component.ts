@@ -7,6 +7,5 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavItemComponent {
-  @Input()
-  link: string;
+  @Input() link: string;
 }
