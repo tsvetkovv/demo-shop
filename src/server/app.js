@@ -5,7 +5,7 @@ const path = require('path');
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 const middlewares = jsonServer.defaults({
   bodyParser: true,
-  static: path.join(process.cwd(), 'dist1'),
+  static: path.join(process.cwd(), 'dist'),
   noCors: true,
 });
 const authRoutes = require('./auth-routes');
