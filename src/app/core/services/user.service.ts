@@ -12,18 +12,22 @@ export class UserService {
 
   getUserByUsername(username: string): Observable<User> {
     return this.http
-      .get<{
-        id: number;
-        login: string;
-        password: string;
-        roleId: number;
-      }>('/users', {
+      .get<
+        [
+          {
+            id: number;
+            login: string;
+            password: string;
+            roleId: number;
+          },
+        ]
+      >('/users', {
         params: {
           login: username,
         },
       })
       .pipe(
-        map(({ id, login, roleId }) => ({
+        map(([{ id, login, roleId }]) => ({
           id,
           username: login,
           role: roleId === 0 ? 'user' : 'admin',
