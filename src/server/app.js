@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 app.use(middlewares);
 app.use(
   cors({
-    allowedHeaders: ['session-token'],
+    allowedHeaders: 'session-token, Content-Type, Access-Control-Allow-Headers, X-Requested-With',
   }),
 );
 
