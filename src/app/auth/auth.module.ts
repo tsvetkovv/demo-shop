@@ -25,6 +25,13 @@ import { AuthEffects } from './effects/auth.effects';
       multi: true,
     },
   ],
-  imports: [CommonModule, StoreModule.forFeature('auth', reducers), EffectsModule.forFeature([AuthEffects]), AuthRoutingModule, HttpClientModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    StoreModule.forFeature('auth', reducers),
+    EffectsModule.forFeature([AuthEffects]),
+    AuthRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AuthModule {}

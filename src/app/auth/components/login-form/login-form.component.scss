@@ -1,12 +1,10 @@
+:host {
+  text-align: center;
+}
+
 .loginError {
   padding: 16px;
   width: 300px;
   color: white;
   background-color: red;
-}
-
-.loginButtons {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
 }

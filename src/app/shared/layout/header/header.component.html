@@ -2,7 +2,11 @@
 
 <div class="right-side">
   <ds-nav-item link="/">Home</ds-nav-item>
-  <ds-nav-item link="/login">Login</ds-nav-item>
-  <span>Welcome, username</span>
-  <ds-nav-item link="/logout">Logout</ds-nav-item>
+  <ng-template #login>
+    <ds-nav-item link="/login">Login</ds-nav-item>
+  </ng-template>
+  <ng-container *ngIf="loggedIn$ | async; else login">
+    <ds-nav-item>Welcome, {{ username$ | async }}</ds-nav-item>
+    <ds-nav-item (click)="logout()">Logout</ds-nav-item>
+  </ng-container>
 </div>

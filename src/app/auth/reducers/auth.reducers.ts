@@ -10,7 +10,11 @@ export const initialState: State = {
   user: undefined,
 };
 
-const authReducer = createReducer(initialState, on(AuthApiActions.loginSuccess, (state, action) => ({ ...state, user: action.user })), on(AuthActions.logout, () => initialState));
+const authReducer = createReducer(
+  initialState,
+  on(AuthApiActions.loginSuccess, (state, action) => ({ ...state, user: action.user })),
+  on(AuthActions.logout, () => initialState),
+);
 
 export function reducer(state = initialState, action: AuthApiActions.AuthApiActionsUnion | AuthActions.AuthActionsUnion): State {
   return authReducer(state, action);

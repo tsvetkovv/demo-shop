@@ -4,7 +4,7 @@ import * as fromRoot from '../../reducers';
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 import { AuthApiActions } from '../actions';
 
-export interface AuthState {
+interface AuthState {
   status: fromAuth.State;
   loginPage: fromLoginPage.State;
 }

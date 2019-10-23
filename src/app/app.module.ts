@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { EffectsModule } from '@ngrx/effects';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     CoreModule,
     AuthModule,
+    ProductsModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {

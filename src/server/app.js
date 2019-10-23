@@ -16,7 +16,8 @@ app.use(middlewares);
 app.use(
   cors({
     allowedHeaders: 'session-token, Content-Type, Access-Control-Allow-Headers, X-Requested-With',
-    exposedHeaders: 'session-token, Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method',
+    exposedHeaders:
+      'session-token, Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method',
   }),
 );
 
