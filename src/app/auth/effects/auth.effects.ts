@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class AuthEffects {
@@ -16,7 +17,11 @@ export class AuthEffects {
     exhaustMap(auth =>
       this.authService.login(auth).pipe(
         map(user => AuthApiActions.loginSuccess({ user })),
-        catchError(error => of(AuthApiActions.loginFailure({ error }))),
+        catchError(error => {
+          if (error instanceof HttpErrorResponse && error.status === 400) {
+            return of(AuthApiActions.loginFailure({ error: 'Wrong login or password' }));
+          }
+        }),
       ),
     ),
   );
